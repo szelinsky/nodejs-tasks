@@ -12,7 +12,8 @@ const contactsPath = path.join(__dirname, 'db', 'contacts.json');
 //   });
 // };
 
-// TODO: задокументировать каждую функцию
+// TODO functions
+//Show contacts from db/contacts.json
 const listContacts = () => {
   fs.readFile(contactsPath, 'utf-8', (err, content) => {
     if (err) {
@@ -25,6 +26,7 @@ const listContacts = () => {
   });
 };
 
+//Getting one contact by id
 const getContactById = contactId => {
   fs.readFile(contactsPath, 'utf-8', (err, content) => {
     if (err) {
@@ -40,6 +42,7 @@ const getContactById = contactId => {
   });
 };
 
+//Removing contact by id
 const removeContact = (contactId) => {
 	fs.readFile(contactsPath, 'utf-8', (err, content) => {
     if (err) {
@@ -58,12 +61,10 @@ const removeContact = (contactId) => {
 		} else {
 			console.log('Контакт с данным id не найден!');
 		}
-
-
 	})
-  
 }
 
+//Adding contact to the file db/contacts.json
 const addContact = (name, email, phone) => {
 	let createJson;
   fs.readFile(contactsPath, 'utf-8', (err, content) => {
